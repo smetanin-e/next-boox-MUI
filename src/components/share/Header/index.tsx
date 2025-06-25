@@ -7,6 +7,7 @@ import { HeaderContainer, HeaderLogo } from '@/styles/header';
 import { HeaderSearch } from './HeaderSearch';
 import { Actions } from './actions';
 import { HeaderNav } from './headerNav';
+import { AppDrawer } from '../drawer';
 
 interface Props {
   className?: string;
@@ -16,8 +17,9 @@ export const Header: React.FC<Props> = () => {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
   const spacing = match ? 4 : 1;
+  const responsePadding = match ? '150px' : '60px';
   return (
-    <>
+    <Box paddingBlockEnd={responsePadding}>
       <AppBar
         sx={{ paddingBlock: '8px', mb: 1, zIndex: '20', width: '100%' }}
         color='inherit'
@@ -35,6 +37,7 @@ export const Header: React.FC<Props> = () => {
           <HeaderNav />
         </Container>
       </AppBar>
-    </>
+      <AppDrawer />
+    </Box>
   );
 };

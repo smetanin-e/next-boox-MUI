@@ -24,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <UIProvider>
           <Header />
           <div style={{ flexGrow: 1 }}>{children}</div>
+
           <Footer />
         </UIProvider>
       </body>

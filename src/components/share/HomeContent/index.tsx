@@ -302,11 +302,10 @@ export const HomeContent = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const Component = matches ? MobileContainer : DesktopContainer;
-  const responsePadding = matches ? '60px' : '150px';
   const responseElevation = matches ? 0 : 4;
   //paddingBlockStart: '60px'
   return (
-    <Box sx={{ paddingBlockStart: responsePadding }}>
+    <>
       {matches ? (
         <Slider />
       ) : (
@@ -364,6 +363,6 @@ export const HomeContent = () => {
           </Component>
         </Paper>
       </Container>
-    </Box>
+    </>
   );
 };
