@@ -1,20 +1,13 @@
-import {
-  Box,
-  Breadcrumbs,
-  Button,
-  Container,
-  IconButton,
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Box, Breadcrumbs, Container, Paper, Stack, Typography } from '@mui/material';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import Link from 'next/link';
-import { StyledImage, StyledImageContainer } from '@/styles/bookPage';
-import CheckIcon from '@mui/icons-material/Check';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { StyledAboutContainer } from '@/styles/bookPage';
+
+import { PriceInfo } from '@/components/share/BookPage/priceInfo';
+import { BookImage } from '@/components/share/BookPage/bookImage';
+import { BookAbout } from '@/components/share/BookPage/bookAbout';
+import { ReadMore } from '@/components/share/BookPage/readMore';
+import { BookCharacteristics } from '@/components/share/BookPage/bookCharacteristics';
 
 export default async function ProductsDetails({
   params,
@@ -35,96 +28,35 @@ export default async function ProductsDetails({
               </Link>
             ))}
           </Breadcrumbs>
-          <Typography variant='body2'>Артикул: 13354812</Typography>
         </Stack>
-        <Typography variant='h5' component='h1'>
+        <Typography variant='h5' component='h1' paddingBlockEnd={3}>
           Поднятие уровня в одиночку. Книга 8 (Solo Leveling). Новелла
         </Typography>
 
-        <Stack direction='row' alignItems='start'>
-          <StyledImageContainer>
-            <StyledImage
-              src='https://ndc.book24.ru/resize/820x1180/pim/products/images/7a/98/01962398-024f-711d-a437-4859db607a98.jpg'
-              alt='image'
-            />
-          </StyledImageContainer>
-          <Box>
-            <Typography variant='h5'>О товаре</Typography>
-            <Typography variant='body1'>
-              - Финальный том новеллы-бестселлера. Завершение серии!
-            </Typography>
-            <Typography variant='body1'>
-              - Первоначально опубликованный на корейском портале KakaoPage в 2016 году, роман
-              быстро привлек 2,4 миллиона читателей, а сейчас их число превышает 4 миллиона.
-            </Typography>
-            <Typography variant='body1'>
-              - История переведена на несколько языков, включая английский.
-            </Typography>
-            <Typography variant='body1'>
-              - В 2024 году вышел первый сезон аниме-сериала «Поднятие уровня в одиночку», в 2025
-              году — второй. Экранизация вошла в топы аниме 2024 года, включая рейтинг от Polygon, и
-              получила премию Astra Award.
-            </Typography>
-            <Typography variant='h6'>Аннотация</Typography>
-            <Typography variant='body1'>
-              &quot;ПОЖЕРТВОВАТЬ ОДНИМ, ЧТОБЫ СПАСТИ МНОГИХ…&quot;
-            </Typography>
-            <Typography variant='body1'>
-              Повелитель Разрушения с армией хаоса обрушиваются на Землю, оставляя за собой кровавый
-              след из миллионов смертей.
-            </Typography>
-            <Typography variant='body1'>
-              Охотники оказываются бессильны перед натиском врага. Теперь судьба человечества
-              находится в руках Сон Чину, недавно коронованного Повелителя Теней.
-            </Typography>
-          </Box>
-          <Box sx={{ flexShrink: 0 }}>
-            <Paper elevation={2} sx={{ p: 2 }}>
-              <Typography variant='body2' display='flex' alignItems='center' gap={1}>
-                <CheckIcon /> В наличии
-              </Typography>
-              <Typography variant='body2' sx={{ textDecoration: 'line-through' }}>
-                919 ₽
-              </Typography>
-              <Stack direction='row' spacing={2}>
-                <Typography
-                  variant='body1'
-                  fontWeight='bold'
-                  fontSize={22} //18
-                  sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}
-                >
-                  <AccountBalanceWalletIcon /> 720 ₽
-                </Typography>
-                <Stack
-                  alignItems={'center'}
-                  justifyContent={'center'}
-                  bgcolor='#FE6564'
-                  color='#fff'
-                  p={'5px 5px'}
-                  borderRadius={'5px'}
-                >
-                  <Typography fontSize={14} fontWeight={'bold'} lineHeight={1}>
-                    -35%
-                  </Typography>
-                </Stack>
-              </Stack>
-              <Stack direction='row'>
-                <Button variant='contained'>Добавить в корзину</Button>
-                <IconButton
-                  sx={{
-                    // position: 'absolute',
-                    // right: '8px',
-                    // top: '8px',
-                    zIndex: 2,
-                    bgcolor: '#fff',
-                  }}
-                >
-                  <FavoriteBorderIcon />
-                </IconButton>
-              </Stack>
+        <Stack direction='row' alignItems='start' mb={3}>
+          <BookImage />
+
+          <Box paddingInline={3}>
+            <Paper elevation={3} sx={{ position: 'relative', p: 2, mb: 2 }}>
+              <StyledAboutContainer>
+                <BookAbout />
+              </StyledAboutContainer>
+
+              <ReadMore />
+            </Paper>
+
+            <Paper elevation={3} sx={{ position: 'relative', p: 2 }}>
+              <StyledAboutContainer>
+                <BookCharacteristics />
+              </StyledAboutContainer>
+              <ReadMore />
             </Paper>
           </Box>
+          <PriceInfo />
         </Stack>
+
+        <BookAbout />
+        <BookCharacteristics />
       </Container>
     </>
   );
