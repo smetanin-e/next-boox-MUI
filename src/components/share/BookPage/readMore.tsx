@@ -1,5 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
-import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 
 export const ReadMore = () => {
@@ -14,9 +13,9 @@ export const ReadMore = () => {
         translate: '-50%',
       }}
     >
-      <Button color='info' size='small'>
-        Подробнее <ReadMoreIcon />
-      </Button>
+      <Typography variant='body2' color='info'>
+        Подробнее
+      </Typography>
     </Box>
   );
 };

@@ -9,6 +9,8 @@ import { BookAbout } from '@/components/share/BookPage/bookAbout';
 import { ReadMore } from '@/components/share/BookPage/readMore';
 import { BookCharacteristics } from '@/components/share/BookPage/bookCharacteristics';
 
+import { RatingSummary } from '@/components/share/BookPage/ratingSummary';
+import { BookReviews } from '@/components/share/BookPage/bookReviews';
 export default async function ProductsDetails({
   params,
 }: {
@@ -29,9 +31,10 @@ export default async function ProductsDetails({
             ))}
           </Breadcrumbs>
         </Stack>
-        <Typography variant='h5' component='h1' paddingBlockEnd={3}>
+        <Typography variant='h5' component='h1' paddingBlockEnd={2}>
           Поднятие уровня в одиночку. Книга 8 (Solo Leveling). Новелла
         </Typography>
+        <RatingSummary />
 
         <Stack direction='row' alignItems='start' mb={3}>
           <BookImage />
@@ -54,9 +57,9 @@ export default async function ProductsDetails({
           </Box>
           <PriceInfo />
         </Stack>
-
-        <BookAbout />
+        <BookReviews />
         <BookCharacteristics />
+        <BookAbout />
       </Container>
     </>
   );

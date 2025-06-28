@@ -1,8 +1,12 @@
+import { Container } from '@mui/material';
+
 export default function ProductDetailLayoyt({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <h1>Recomendations</h1>
+      <Container>
+        <h1>Recomendations</h1>
+      </Container>
     </>
   );
 }
