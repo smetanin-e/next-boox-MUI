@@ -10,7 +10,6 @@ export const BookReviews = () => {
       <Typography variant='h6' paddingBlockEnd={1}>
         Отзывы
       </Typography>
-      <BookRating />
 
       <ReviewFilter />
 

@@ -8,7 +8,7 @@ export const StyledImageContainer = styled(Box)({
 });
 export const StyledImage = styled('img')({
   width: '100%',  
-  height: '416px', 
+  height: '420px', 
   objectFit: 'cover', 
 });
 
@@ -29,3 +29,10 @@ export const StyledAboutContainer = styled(Box)({
     }
   
 });
+
+export const BookGridContainer = styled(Box)({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(273px, 1fr))',
+    gap: '20px',
+    marginBlockEnd:'40px'
+}); 

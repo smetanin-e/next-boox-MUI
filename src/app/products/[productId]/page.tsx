@@ -1,7 +1,7 @@
 import { Box, Breadcrumbs, Container, Paper, Stack, Typography } from '@mui/material';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import Link from 'next/link';
-import { StyledAboutContainer } from '@/styles/bookPage';
+import { BookGridContainer, StyledAboutContainer } from '@/styles/bookPage';
 
 import { PriceInfo } from '@/components/share/BookPage/priceInfo';
 import { BookImage } from '@/components/share/BookPage/bookImage';
@@ -11,6 +11,7 @@ import { BookCharacteristics } from '@/components/share/BookPage/bookCharacteris
 
 import { RatingSummary } from '@/components/share/BookPage/ratingSummary';
 import { BookReviews } from '@/components/share/BookPage/bookReviews';
+import { BookRating } from '@/components/share/BookPage/bookRating';
 export default async function ProductsDetails({
   params,
 }: {
@@ -36,18 +37,37 @@ export default async function ProductsDetails({
         </Typography>
         <RatingSummary />
 
-        <Stack direction='row' alignItems='start' mb={3}>
-          <BookImage />
+        {/*  */}
+        <BookGridContainer>
+          <Box
+            sx={{
+              gridColumn: 'span 1',
+              gridRow: 'span 2',
+              display: 'flex',
+              justifyContent: 'center',
+              order: 1,
+            }}
+          >
+            <BookImage />
+          </Box>
 
-          <Box paddingInline={3}>
-            <Paper elevation={3} sx={{ position: 'relative', p: 2, mb: 2 }}>
+          <Box sx={{ gridColumn: 'span 2', gridRow: 'span 1', order: 2 }}>
+            <Paper elevation={3} sx={{ position: 'relative', p: 2 }}>
               <StyledAboutContainer>
                 <BookAbout />
               </StyledAboutContainer>
 
               <ReadMore />
             </Paper>
+          </Box>
 
+          <Box
+            sx={{
+              gridColumn: 'span 2',
+              gridRow: 'span 1',
+              order: 4,
+            }}
+          >
             <Paper elevation={3} sx={{ position: 'relative', p: 2 }}>
               <StyledAboutContainer>
                 <BookCharacteristics />
@@ -55,11 +75,19 @@ export default async function ProductsDetails({
               <ReadMore />
             </Paper>
           </Box>
-          <PriceInfo />
-        </Stack>
+
+          <Box sx={{ gridColumn: 'span 1', gridRow: 'span 1', order: 3 }}>
+            <PriceInfo />
+          </Box>
+
+          <Box sx={{ gridColumn: 'span 1', gridRow: 'span 1', order: 5 }}>
+            <BookRating />
+          </Box>
+        </BookGridContainer>
+
         <BookReviews />
-        <BookCharacteristics />
         <BookAbout />
+        <BookCharacteristics />
       </Container>
     </>
   );

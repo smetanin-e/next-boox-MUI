@@ -1,5 +1,5 @@
 'use client';
-import { Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { Box, FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import React from 'react';
 
 export const ReviewFilter = () => {
@@ -10,15 +10,8 @@ export const ReviewFilter = () => {
   };
   return (
     <Box sx={{ minWidth: 120, maxWidth: 300 }} mb={2}>
-      <FormControl variant='outlined' fullWidth>
-        <InputLabel id='review-select-label'>Сортировать по</InputLabel>
-        <Select
-          labelId='review-select-label'
-          id='review-select'
-          value={select}
-          label='reviews'
-          onChange={handleChange}
-        >
+      <FormControl fullWidth>
+        <Select value={select} onChange={handleChange} displayEmpty>
           <MenuItem value={'new'}>Сначала новые</MenuItem>
           <MenuItem value={'old'}>Сначала старые</MenuItem>
           <MenuItem value={'good'}>Сначала с высокой оценкой</MenuItem>
