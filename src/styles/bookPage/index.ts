@@ -1,16 +1,15 @@
 'use client'
-import { Height } from "@mui/icons-material";
-import { Box, Paper, Stack, styled } from "@mui/material";
+
+import { Box, Paper, styled } from "@mui/material";
 
 export const StyledImageContainer = styled(Box)({
     display:"flex", 
-    justifyContent:"center", 
-    //alignItems:"center", 
+    justifyContent:"center",
+    flexShrink:0 
 });
 export const StyledImage = styled('img')({
-    minWidth: '260px',
-  width: '100%',  
-  height: '420px', 
+
+  width: '100%',
   objectFit: 'cover', 
 });
 
