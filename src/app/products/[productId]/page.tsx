@@ -19,6 +19,8 @@ export default async function ProductsDetails({
 }) {
   const productId = (await params).productId;
   const breadcrumbs = ['Главная', 'Детские книги', 'Сказки'];
+
+  //xs-0 sm-600 md-900 lg-1200 xl-1536
   return (
     <>
       <h1>Details about product {productId}</h1>
@@ -42,16 +44,23 @@ export default async function ProductsDetails({
           <Box
             sx={{
               gridColumn: 'span 1',
-              gridRow: 'span 2',
+              gridRow: 'span 3',
               display: 'flex',
               justifyContent: 'center',
-              order: 1,
+              order: { lg: 1 },
             }}
           >
             <BookImage />
           </Box>
 
-          <Box sx={{ gridColumn: 'span 2', gridRow: 'span 1', order: 2 }}>
+          <Box
+            sx={{
+              width: '100%',
+              gridColumn: { sm: 'span 2', xs: 'span 1' },
+              gridRow: 'span 1',
+              order: { lg: 2, sm: 4, xs: 3 },
+            }}
+          >
             <Paper elevation={3} sx={{ position: 'relative', p: 2 }}>
               <StyledAboutContainer>
                 <BookAbout />
@@ -63,9 +72,10 @@ export default async function ProductsDetails({
 
           <Box
             sx={{
-              gridColumn: 'span 2',
+              width: '100%',
+              gridColumn: { sm: 'span 2', xs: 'span 1' },
               gridRow: 'span 1',
-              order: 4,
+              order: { lg: 4, sm: 5, xs: 4 },
             }}
           >
             <Paper elevation={3} sx={{ position: 'relative', p: 2 }}>
@@ -76,11 +86,25 @@ export default async function ProductsDetails({
             </Paper>
           </Box>
 
-          <Box sx={{ gridColumn: 'span 1', gridRow: 'span 1', order: 3 }}>
+          <Box
+            sx={{
+              width: '100%',
+              gridColumn: 'span 1',
+              gridRow: 'span 1',
+              order: { lg: 3, sm: 2, xs: 2 },
+            }}
+          >
             <PriceInfo />
           </Box>
 
-          <Box sx={{ gridColumn: 'span 1', gridRow: 'span 1', order: 5 }}>
+          <Box
+            sx={{
+              width: '100%',
+              gridColumn: 'span 1',
+              gridRow: 'span 1',
+              order: { lg: 5, sm: 3, xs: 5 },
+            }}
+          >
             <BookRating />
           </Box>
         </BookGridContainer>

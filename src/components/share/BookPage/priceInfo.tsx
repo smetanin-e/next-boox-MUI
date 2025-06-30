@@ -1,22 +1,15 @@
-import { Box, Button, IconButton, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import React from 'react';
 
 import CheckIcon from '@mui/icons-material/Check';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { PriceContainer } from '@/styles/bookPage';
 
 export const PriceInfo = () => {
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        height: '200px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <PriceContainer elevation={2}>
       <Box p={2}>
         <Typography
           color='success'
@@ -28,10 +21,11 @@ export const PriceInfo = () => {
         >
           <CheckIcon /> В наличии
         </Typography>
-        <Typography variant='body2' color='textDisabled' sx={{ textDecoration: 'line-through' }}>
-          919 ₽
-        </Typography>
-        <Stack direction='row' spacing={2} alignItems='center' paddingBlockEnd={2}>
+
+        <Stack direction={'row'} spacing={2} alignItems={'center'} paddingBlockEnd={2}>
+          <Typography variant='body2' color='textDisabled' sx={{ textDecoration: 'line-through' }}>
+            919 ₽
+          </Typography>
           <Typography
             color='secondary'
             variant='body1'
@@ -39,37 +33,40 @@ export const PriceInfo = () => {
             fontSize={22} //18
             sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}
           >
-            <AccountBalanceWalletIcon /> 720 ₽
+            720 ₽ <AccountBalanceWalletIcon />
           </Typography>
-          <Box>
-            <Stack
-              alignItems={'center'}
-              justifyContent={'center'}
-              bgcolor='#FE6564'
-              color='#fff'
-              p={'5px 5px'}
-              borderRadius={'5px'}
-            >
-              <Typography fontSize={14} fontWeight={'bold'} lineHeight={1}>
-                -35%
-              </Typography>
-            </Stack>
-          </Box>
+          <Stack
+            alignItems={'center'}
+            justifyContent={'center'}
+            bgcolor='#FE6564'
+            color='#fff'
+            p={'5px 5px'}
+            borderRadius={'5px'}
+          >
+            <Typography fontSize={14} fontWeight={'bold'} lineHeight={1}>
+              -35%
+            </Typography>
+          </Stack>
         </Stack>
-        <Stack direction='row' spacing={1} justifyContent='space-between'>
+        <Stack
+          direction='row'
+          spacing={1}
+          justifyContent='space-between'
+          sx={{ paddingBlockStart: { sm: '2rem' } }}
+        >
           <Button size='small' variant='contained'>
             Добавить в корзину
           </Button>
           <IconButton
             sx={{
               zIndex: 2,
-              bgcolor: '#fff',
+              bgcolor: '#cecece',
             }}
           >
             <FavoriteBorderIcon />
           </IconButton>
         </Stack>
       </Box>
-    </Paper>
+    </PriceContainer>
   );
 };

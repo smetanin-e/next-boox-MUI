@@ -1,12 +1,14 @@
 'use client'
-import { Box, styled } from "@mui/material";
+import { Height } from "@mui/icons-material";
+import { Box, Paper, Stack, styled } from "@mui/material";
 
 export const StyledImageContainer = styled(Box)({
     display:"flex", 
     justifyContent:"center", 
-    alignItems:"center", 
+    //alignItems:"center", 
 });
 export const StyledImage = styled('img')({
+    minWidth: '260px',
   width: '100%',  
   height: '420px', 
   objectFit: 'cover', 
@@ -34,5 +36,12 @@ export const BookGridContainer = styled(Box)({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(273px, 1fr))',
     gap: '20px',
-    marginBlockEnd:'40px'
+    marginBlockEnd:'40px',
 }); 
+
+export const PriceContainer = styled(Paper)(({theme}) => ({
+    height: '200px',
+    [theme.breakpoints.down('sm')]: {
+        height: 'auto'
+    }
+}))

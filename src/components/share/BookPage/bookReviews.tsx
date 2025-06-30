@@ -7,7 +7,7 @@ import { ReviewFilter } from './reviewFilter';
 export const BookReviews = () => {
   return (
     <Box mb={4}>
-      <Typography variant='h6' paddingBlockEnd={1}>
+      <Typography variant='h6' paddingBlockEnd={1} textAlign={'right'}>
         Отзывы
       </Typography>
 
