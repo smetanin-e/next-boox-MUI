@@ -1,15 +1,15 @@
-import { StyledImage, StyledImageContainer } from '@/styles/bookPage';
-import { Paper } from '@mui/material';
+import { StyledImage, StyledImageContainer } from '@/styles/';
 import React from 'react';
 
-export const BookImage = () => {
+type ImageContainerProps = {
+  src: string;
+  heigth: number;
+};
+
+export const ImageContainer = ({ src, heigth }: ImageContainerProps) => {
   return (
     <StyledImageContainer>
-      <StyledImage
-        height={420}
-        src='https://content.img-gorod.ru/pim/products/images/8d/14/0196ae94-8845-735f-ba96-5fe38c328d14.jpg?width=608&height=867&fit=bounds'
-        alt='image'
-      />
+      <StyledImage height={heigth} src={src} alt='image' />
     </StyledImageContainer>
   );
 };

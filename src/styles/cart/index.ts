@@ -9,7 +9,7 @@ export const CartContainer = styled(Box)(({theme})=>({
      gap: '20px',
      [theme.breakpoints.down('md')]: {
        flexDirection: 'column',
-       
+       alignItems:'normal',
     }
 }));
 

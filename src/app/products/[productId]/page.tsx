@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { BookGridContainer, StyledAboutContainer } from '@/styles/bookPage';
 
 import { PriceInfo } from '@/components/share/BookPage/priceInfo';
-import { BookImage } from '@/components/share/BookPage/bookImage';
+import { ImageContainer } from '@/components/share/BookPage/bookImage';
 import { BookAbout } from '@/components/share/BookPage/bookAbout';
 import { ReadMore } from '@/components/share/BookPage/readMore';
 import { BookCharacteristics } from '@/components/share/BookPage/bookCharacteristics';
@@ -50,7 +50,12 @@ export default async function ProductsDetails({
               order: { lg: 1 },
             }}
           >
-            <BookImage />
+            <ImageContainer
+              heigth={420}
+              src={
+                'https://content.img-gorod.ru/pim/products/images/8d/14/0196ae94-8845-735f-ba96-5fe38c328d14.jpg?width=608&height=867&fit=bounds'
+              }
+            />
           </Box>
 
           <Box
